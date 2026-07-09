@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Bohdan Starchenko | Operations & Automation Engineer</title>
+    <meta name="description" content="Portfolio of Bohdan Starchenko, specializing in workflow automation, API integrations, and digital operations systems based in Valencia, Spain.">
+    <meta name="robots" content="index, follow">
+
+    <link rel="icon" href="/favicon.ico" sizes="any">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Optional: If you want to use your external style.css file from GitHub, uncomment the line below -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <style>
+        :root {
+            /* Softer, minimalist dark palette */
+            --bg: #111111;
+            --bg2: #1a1a1a;
+            --border: #2a2a2a;
+            --border-hover: #4a4a4a;
+            --accent: #a3b8cc;
+            /* Muted slate blue */
+            --text: #e0e0e0;
+            --text-bright: #ffffff;
+            --muted: #888888;
+            --card: #161616;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Syne', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-bright);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* ── MOBILE RESPONSIVE NAV ── */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 20px;
+                gap: 20px;
+                text-align: center;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+
+        .nav-logo {
+            font-family: 'DM Mono', monospace;
+            color: var(--text-bright);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-bright);
+        }
+
+        /* ── HERO ── */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 40px 80px;
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            flex: 1;
+        }
+
+        .hero-image {
+            flex-shrink: 0;
+        }
+
+        .hero-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            filter: grayscale(20%);
+            transition: filter 0.3s ease, border-color 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            filter: grayscale(0%);
+            border-color: var(--border-hover);
+        }
+
+        .hero-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .hero-tag::before {
+            content: '';
+            width: 40px;
+            height: 1px;
+            background: var(--muted);
+        }
+
+        h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+            color: var(--text-bright);
+        }
+
+        h1 .highlight {
+            color: var(--accent);
+        }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: var(--muted);
+            line-height: 1.8;
+            max-width: 580px;
+            margin-bottom: 48px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--text-bright);
+            color: var(--bg);
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+        }
+
+        .btn-ghost {
+            border: 1px solid var(--border);
+            color: var(--text-bright);
+            padding: 14px 32px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--border-hover);
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 64px;
+            padding-top: 48px;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-bright);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-item .label {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        /* ── SECTIONS ── */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-label {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--muted);
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 60px;
+            line-height: 1.1;
+            color: var(--text-bright);
+        }
+
+        /* ── PROJECT CARDS ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .project-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-tag .dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-bright);
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .tech-tag {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.7rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--muted);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .project-links a {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.3s ease;
+        }
+
+        .project-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ── EXPERIENCE ── */
+        .experience-list {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .exp-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 32px;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .exp-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .exp-date {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+            padding-top: 4px;
+        }
+
+        .exp-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-bright);
+        }
+
+        .exp-company {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .exp-content p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .exp-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .exp-tag {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* ── SKILLS ── */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .skill-group {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+        }
+
+        .skill-group h3 {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-bright);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .number-container {
+            display: flex;
+            flex-direction: column;
+            font-family: 'DM Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--muted);
+            gap: 4px;
+            letter-spacing: 1px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-item {
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 6px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            color: var(--muted);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            color: var(--text-bright);
+            border-color: var(--border-hover);
+        }
+
+        /* ── ABOUT ── */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .about-details {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            padding: 20px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .detail-text strong {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 4px;
+        }
+
+        .detail-text span {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        /* ── CONTACT ── */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .contact-text h2 {
+            margin-bottom: 24px;
+        }
+
+        .contact-text p {
+            color: var(--muted);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px 24px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            border-color: var(--border-hover);
+            background: var(--bg2);
+        }
+
+        .contact-link-text strong {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-bright);
+            margin-bottom: 2px;
+        }
+
+        .contact-link-text span {
+            font-size: 0.8rem;
+            color: var(--muted);
+            font-family: 'DM Mono', monospace;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            font-family: 'DM Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        /* ── MOBILE RESPONSIVENESS ── */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            #hero {
+                padding: 120px 20px 60px;
+            }
+
+            .hero-container {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-tag {
+                justify-content: center;
+            }
+
+            .hero-tag::before {
+                display: none;
+            }
+
+            .hero-cta {
+                justify-content: center;
+            }
+
+            .hero-image img {
+                width: 200px;
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                gap: 32px;
+                flex-wrap: wrap;
+                justify-content: center;
+                text-align: center;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .exp-item {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 32px 0;
+            }
+
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-logo">BS — PORTFOLIO</div>
+
+        <button class="menu-toggle" id="mobile-menu-btn">☰</button>
+
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Bohdan<br><span class="highlight">Starchenko</span></h1>
+                <p class="hero-desc">
+                    Technical Support & Systems Specialist.
+                    I build tools, automate workflows, and turn messy operations into clean digital systems.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn-primary">View Projects</a>
+                    <a href="#contact" class="btn-ghost">Get in Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="number">4</span>
+                        <span class="label">Languages</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">5</span>
+                        <span class="label">Live Apps</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">2</span>
+                        <span class="label">Years Exp.</span>
+                    </div>
+                    <div class="number-container">
+                        <span>EUROPE</span>
+                        <span>LATAM</span>
+                        <span>NORTH AMERICA</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="images/profile.jpg" alt="Bohdan Starchenko">
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects">
+        <div class="section-label">Featured Work</div>
+        <h2>Projects I've<br>shipped to production</h2>
+        <div class="projects-grid">
+
+            <div class="project-card">
+                <div class="project-tag">
+                    <span class="dot"></span>Live in Production
+                </div>
+                <h3>LogiFlow — Last Mile Ecosystem</h3>
+                <p>
+                    Full-stack logistics platform managing real-time delivery operations in Valencia.
+                    Three interconnected apps for admins, drivers, and customers with live route optimization,
+                    photo delivery proof, and real traffic integration.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">Supabase</span>
+                    <span class="tech-tag">Leaflet.js</span>
+                    <span class="tech-tag">REST API</span>
+                    <span class="tech-tag">Netlify</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://logiflweb.netlify.app/" target="_blank">↗ LogiFlow website</a>
+                    <a href="https://github.com/bogstar21/logiflow" target="_blank">↗ GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-tag">
+                    <span class="dot"></span>Automation Project
+                </div>
+                <h3>Automated Landing Page Engine</h3>
+                <p>
+                    Led the transition from a manual, time-consuming WordPress web design workflow to a fully automated landing page deployment pipeline. Engineered an operational system leveraging PHP, Zapier, and Claude Code to dynamically generate marketing environments on demand.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">Zapier</span>
+                    <span class="tech-tag">Claude Code</span>
+                    <span class="tech-tag">WordPress API</span>
+                    <span class="tech-tag">Automation</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" target="_blank">↗ Internal Tool</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-tag">
+                    <span class="dot"></span>AI Architecture
+                </div>
+                <h3>AI-Powered Conversation Intelligence</h3>
+                <p>
+                    Developed a specialized Node.js micro-server to evaluate and process customer communications. The server securely sanitizes and anonymizes dialogue histories, extracts structural operational insights, and pipes metrics directly into enriched dashboard tracking setups.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">AI Integration</span>
+                    <span class="tech-tag">Sentiment Analysis</span>
+                    <span class="tech-tag">Data Dashboards</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" target="_blank">↗ Microservice Tool</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-tag">
+                    <span class="dot"></span>Work Project
+                </div>
+                <h3>Epixlife Sales Dashboard</h3>
+                <p>
+                    Internal Google Apps Script tool for the sales team — integrates Zoho Inventory API
+                    and Onboarding progress tracker to give real-time shipment status and client data
+                    from a single interface.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Google Apps Script</span>
+                    <span class="tech-tag">Zoho API</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" target="_blank">↗ Internal Tool</a>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-tag">
+                    <span class="dot"></span>Outsource Project
+                </div>
+                <h3>Logistics ERP Solution (ODX System)</h3>
+                <p>
+                    A comprehensive Role-Based Workflow Engine and ERP solution for logistics operations. 
+                    Built a Telegram bot and web application ecosystem to manage equipment requests, audits, 
+                    and daily agent visits with automated supervisor approval flows and Google Workspace integration.
+                </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Google Apps Script</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Telegram API</span>
+                    <span class="tech-tag">Google Sheets</span>
+                </div>
+                <div class="project-links">
+                    <a href="#" target="_blank">↗ Client Project</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience">
+        <div class="section-label">Career</div>
+        <h2>Where I've<br>made an impact</h2>
+        <div class="experience-list">
+
+            <div class="exp-item">
+                <div class="exp-date">Sep 2025 — Present<br><br>Valencia, Spain</div>
+                <div class="exp-content">
+                    <h3>Technical Support & Systems Implementation</h3>
+                    <div class="exp-company">EPIXLIFE</div>
+                    <p>Led digital transformation from manual Excel processes to Zoho Inventory ecosystem. Built API
+                        integrations for automated order processing and real-time shipping tracking. Providing Tier 1 &
+                        2 support for EMEA and LATAM clients while developing internal automations to reduce manual
+                        workload.</p>
+                    <div class="exp-tags">
+                        <span class="exp-tag">Zoho Inventory</span>
+                        <span class="exp-tag">API Integration</span>
+                        <span class="exp-tag">Google Apps Script</span>
+                        <span class="exp-tag">EMEA & LATAM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">Apr 2025 — Aug 2025<br><br>Valencia, Spain</div>
+                <div class="exp-content">
+                    <h3>Administrator & Operations</h3>
+                    <div class="exp-company">HOW TO SPAIN S.L.</div>
+                    <p>Coordinated migration and education departments managing Digital Nomad visa applications and
+                        legal documentation. Oversaw CRM-based lead tracking, performance analysis, and established
+                        strategic partnerships.</p>
+                    <div class="exp-tags">
+                        <span class="exp-tag">CRM Management</span>
+                        <span class="exp-tag">Process Optimization</span>
+                        <span class="exp-tag">Legal Documentation</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="exp-item">
+                <div class="exp-date">2021 — May 2025<br><br>Valencia, Spain</div>
+                <div class="exp-content">
+                    <h3>International Trade Manager</h3>
+                    <div class="exp-company">YUMMIBUYER</div>
+                    <p>Managed end-to-end import/export logistics across Europe. Built data models to track costs,
+                        inventory turnover, and profit margins. Handled customs compliance and supplier negotiations.
+                    </p>
+                    <div class="exp-tags">
+                        <span class="exp-tag">International Logistics</span>
+                        <span class="exp-tag">Data Modeling</span>
+                        <span class="exp-tag">Customs Compliance</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+        <div class="section-label">Toolkit</div>
+        <h2>Technologies &<br>capabilities</h2>
+        <div class="skills-grid">
+
+            <div class="skill-group">
+                <h3>Development (Junior)</h3>
+                <div class="skill-items">
+                    <span class="skill-item">JavaScript (ES6+)</span>
+                    <span class="skill-item">Node.js</span>
+                    <span class="skill-item">Express.js</span>
+                    <span class="skill-item">REST APIs</span>
+                    <span class="skill-item">HTML5 / CSS3</span>
+                    <span class="skill-item">Git / GitHub</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h3>Data & Analytics</h3>
+                <div class="skill-items">
+                    <span class="skill-item">SQL</span>
+                    <span class="skill-item">Power BI</span>
+                    <span class="skill-item">Tableau</span>
+                    <span class="skill-item">Excel Advanced</span>
+                    <span class="skill-item">Supabase</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h3>Systems & Tools</h3>
+                <div class="skill-items">
+                    <span class="skill-item">Zoho Inventory</span>
+                    <span class="skill-item">Zoho CRM</span>
+                    <span class="skill-item">Google Apps Script</span>
+                    <span class="skill-item">Netlify / Render</span>
+                    <span class="skill-item">Postman</span>
+                </div>
+            </div>
+
+            <div class="skill-group">
+                <h3>Languages</h3>
+                <div class="skill-items">
+                    <span class="skill-item">🇪🇸 Spanish C1</span>
+                    <span class="skill-item">🇬🇧 English C1</span>
+                    <span class="skill-item">🇺🇦 Ukrainian Native</span>
+                    <span class="skill-item">🇷🇺 Russian Native</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <div class="section-label">About</div>
+        <h2>The person<br>behind the code</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I'm Bohdan — a systems thinker who bridges the gap between business operations
+                    and technical implementation. Currently in Valencia, Spain.
+                </p>
+                <p>
+                    My background in international trade gave me a deep understanding of how operations
+                    actually work — the messy reality behind the spreadsheets. Now I'm building the tools
+                    to fix those problems with code and AI.
+                </p>
+            </div>
+            <div class="about-details">
+                <div class="detail-item">
+                    <div class="detail-text">
+                        <strong>Location</strong>
+                        <span>Valencia, Spain (Open to remote)</span>
+                    </div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-text">
+                        <strong>Focus</strong>
+                        <span>Workflow Automation, API Architecture, Systems Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+        <div class="section-label">Contact</div>
+        <h2>Let's build something<br>seamless together</h2>
+        <div class="contact-grid">
+            <div class="contact-text">
+                <p>
+                    Whether you are trying to eliminate manual operations workflows, integrate platforms via REST APIs, or need tier support configurations for your systems, let's chat.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:your-email@example.com" class="contact-link">
+                        <div class="contact-link-text">
+                            <strong>Email Me</strong>
+                            <span>Get in touch via email</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/bogstar21" target="_blank" class="contact-link">
+                        <div class="contact-link-text">
+                            <strong>GitHub</strong>
+                            <span>github.com/bogstar21</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Bohdan Starchenko. Built with precision.</p>
+    </footer>
+
+    <!-- MOBILE MENU JAVASCRIPT -->
+    <!-- Optional: If you want to use your external script.js file, uncomment the line below and remove the internal script tag -->
+    <!-- <script src="script.js"></script> -->
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile nav menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

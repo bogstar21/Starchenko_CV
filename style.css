@@ -1,0 +1,246 @@
+/* =====================================================
+   RESET & GLOBAL STYLES
+===================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+/* Accessible focus */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(58, 154, 217, 0.4);
+    border-radius: 6px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 20px;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+header {
+    background-color: #3a9ad9;
+    color: white;
+    padding: 12px 20px; /* más estrecho */
+    position: relative;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+/* Profile photo */
+.profile-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+
+/* Header text */
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.3rem;
+    margin-bottom: 4px;
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    opacity: 0.9;
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav ul li a:hover {
+    color: #ffddb8;
+}
+
+/* =====================================================
+   SECTIONS
+===================================================== */
+section {
+    padding: 30px 20px; /* menos espacio entre bloques */
+}
+
+section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    color: #2e8b57;
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+/* =====================================================
+   ABOUT ME (70% WIDTH)
+===================================================== */
+#about p {
+    max-width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.05rem;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+.card {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* =====================================================
+   SKILLS
+===================================================== */
+.skills-section {
+    margin-bottom: 26px;
+}
+
+.skills-section h3 {
+    margin-bottom: 12px;
+    color: #3a9ad9;
+}
+
+.skills-section ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills-section ul li {
+    background-color: #3a9ad9;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.skills-section ul li:hover {
+    background-color: #2e8b57;
+}
+
+/* =====================================================
+   HOBBIES
+===================================================== */
+#hobbies ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+}
+
+#hobbies ul li {
+    background-color: #ff7f50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 22px;
+    font-size: 0.95rem;
+}
+
+/* =====================================================
+   LINKS / CONTACT
+===================================================== */
+#contact p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#contact a {
+    color: #3a9ad9;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+
+#contact a:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+@media (max-width: 768px) {
+    header {
+        padding: 10px 10px; /* header más estrecho */
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+    body {
+        padding-top: 120px; /* para que el header no tape contenido */
+    }
+}
+
